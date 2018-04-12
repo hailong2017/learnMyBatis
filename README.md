@@ -1,8 +1,3 @@
-作业提交（单例模式，抽象工厂，原型模式，模板模式，策略模式）
-
-branch添加
-
-作业提交（委派模式，适配器模式，观察者模式，装饰器模式）
 
 MyBatis课后作业
 -、实用篇-20180324作业
@@ -70,11 +65,13 @@ TestMapper是一个接口类，mybatis底层处理是通过mapperProxy对它进�
 
 2.org.apache.ibatis.executor.BaseExecutor#queryFromDatabase 322行这行代码的意义
 解决缓存击穿
+
 3.MyBatis的plugin实现机制
 plugin的实现机制是利用了java的动态代理.AOP
 org.apache.ibatis.session.Configuration类加载mybatis-config.xml配置文件时，将所有plugin按配置顺序加载到
 org.apache.ibatis.session.Configuration#interceptorChain集合中
 在执行数据库操作时，新生成的ParameterHandler, ResultSetHandler, StatementHandler, Executor对象会被代理起来。
 使用org.apache.ibatis.plugin.InterceptorChain#pluginAll方法会按interceptorChain数组顺序生成调用链
+
 4.lazy loading 是怎么做到的？
   代理实现的，可以配置ProxyFactory的值，可选择CGLIB|JAVASSIST，3.3以后默认采用JAVASSIT。
